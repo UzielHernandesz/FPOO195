@@ -2,8 +2,8 @@
 # pantalla un triángulo rectángulo como el de más abajo, de altura el número
 # introducido. (img 1)
 
-n = int(input("Introduce la altura del triángulo (entero positivo): "))
-for i in range(n):
-    for j in range(i+1):
-        print("1", end="")
+numero_entero = int(input("Introduce la altura del triángulo (entero positivo): "))
+for i in range(1, numero_entero+1, 2):
+    for j in range(i, 0, -2):
+        print(j, end=" ")
     print("")
