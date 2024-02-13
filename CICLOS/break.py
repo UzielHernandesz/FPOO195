@@ -1,7 +1,7 @@
 contador = 1
 while contador <= 5:
     print(contador)
-    if contador == 3:
+    if contador == 10:
         break
     
     contador += 1
