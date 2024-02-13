@@ -4,19 +4,38 @@
 # b. Eliminar numero repetidos
 # c. Remplazar los repetidos con 0
 
-
-
-
-
 import random
-from collections import Counter
 
-print("Ingrese el numero de valores")
-n=int(input())
-aleatorios = [random.randint(10,20) for _ in range(n)]
-print(aleatorios)
+aleatorios = [random.randint(10, 20) for _ in range(30)]
+print("Lista de números aleatorios es :", aleatorios)
 
-lista = [n]
-contador = Counter(lista)
-print(contador)
+while True:
+    print("a. Contar números repetidos")
+    print("b. Eliminar números repetidos")
+    print("c. Reemplazar repetidos con 0")
+
+    opcion = input("Seleccione la opcion que desee: ")
+
+    if opcion == 'a':
+        contar_repetidos = {}
+        for num in aleatorios:
+            contar_repetidos[num] = contar_repetidos.get(num, 0) + 1
+
+        for num, cantidad in contar_repetidos.items():
+            if cantidad > 1:
+                print(f"El número {num} se repite {cantidad} veces.")
+
+    elif opcion == 'b':
+        aleatorios = list(set(aleatorios))
+        print("Números repetidos eliminados:", aleatorios)
+
+    elif opcion == 'c':
+        contar_repetidos = {}
+        for i in range(len(aleatorios)):
+            if aleatorios[i] in contar_repetidos:
+                aleatorios[i] = 0
+            else:
+                contar_repetidos[aleatorios[i]] = 1
+
+        print("Asi quedo:", aleatorios)
 
