@@ -1,26 +1,30 @@
 
 #Creamos la clase
-class personaje:
+class Personaje:
     
-    # Creamos nuestros atributos
-    especie= "Humano"
-    nombre= "John"
-    altura= 2.18 #No va entre comillas por que queremos que sea flotante float
-    
+    def __init__(self,esp,nom,alt):
+        self.especie= esp
+        self.nombre= nom
+        self.altura= alt
+        
+    #No va entre comillas por que queremos que sea flotante float
+    #_ ANTES DEL NOMBRE Y YA LOS HACEMOS PRIVADOS
     
     
     #Creamos los metodos del personaje
     
     def correr(self,estado):
         if(estado): 
-            print("El personaje "+ self.nombre+ " esta corriendo")
+            print("El personaje"+ self.nombre+ "esta corriendo")
         else:
-            print("El personaje "+ self.nombre + " esta muerto")
+            print("El personaje"+ self.nombre + "esta muerto")
             
             #self para llamar los propios atributos
             
     def lanzar_Granada(self):
-        print(self.nombre + " pego una buena granada")
+        print(self.nombre+ "pego una buena granada")
         
-    
+
+
+
 
