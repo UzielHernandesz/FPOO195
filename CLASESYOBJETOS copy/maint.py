@@ -27,19 +27,19 @@ Arma= Armas()
 # creamos el objeto de la clase personaje   
 spartan = Personaje(especieS,nombreS,alturaS)
 nemesis = Personaje(especieN,nombreN,alturaN)
-Arma= Armas()
+
 #usamos los atributos del spartan
 print("============El objeto spartan contiene==========")
-print(spartan.nombre)
-print(spartan.especie)
-print(spartan.altura)
+print(spartan.get__nombre())
+print(spartan.get__especie())
+print(spartan.get__altura())
 print("")
 
 #usamos los atributos del nemesis
 print("============El objeto nemesis contiene==========")
-print(nemesis.nombre)
-print(nemesis.especie)
-print(nemesis.altura)
+print(nemesis.get__nombre())
+print(nemesis.get__especie())
+print(nemesis.get__altura())
 
 
 #Usamos los metodos del spartan
@@ -56,8 +56,13 @@ print("")
 
 
 #Usamos los metodos del arma
-print("=====================ACCIONES===============")
-Arma.seleccionar_arma(spartan.nombre)
+print("=====================SPARTAN===============")
+Arma.seleccionar_arma(spartan.get__nombre)
 Arma.Recargar_Arma(65)
 print("")
 
+
+print("=====================NEMESIS===============")
+Arma.seleccionar_arma(nemesis.get__nombre)
+Arma.Recargar_Arma(65)
+print("")
