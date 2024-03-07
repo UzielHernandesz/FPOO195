@@ -1,26 +1,60 @@
-from practica10 import*
+import sys
+from Usuario import*
 
 
 
-print("=================CREAR USUARIO========")
-id= int (input("Ingrese su id: "))
-nombre = input("Ingrese el nombre de usuario: ")
-apellp = input("Ingrese su apellido paterno: ")
-apellm = input("Ingrese su apellido materno: ")
-correo = input("Ingrese su correo: ")
-contraseña = input("Ingrese su contraseña: ")
+objectPeople= Usuario ()
 
-
-CrearUsuario (id,nombre,apellp,apellm,correo,contraseña)
-
-
-
-print("============USUARIO CREADO==========")
-
-print(CrearUsuario.get__id())
-print(CrearUsuario.get__nombre())
-print(CrearUsuario.get__apellp())
-print(CrearUsuario.get__apellm())
-print(CrearUsuario.get__correo())
-print(CrearUsuario.get__contraseña())
-print("")
+while True:
+    print("==Menu==")
+    print("1. Insertar usuario: ")
+    print("2. Consultar usuario: ")
+    print("3. Buscar usuario: ")
+    print("4. Eliminar usuario: ")
+    print("5. Editar usuario: ")
+    print("6. Salir")
+    opcion = input("Elige una opcion: ")
+    
+    
+    
+    if opcion == "1":
+        print(" == Ingrese los datos del usuario ==")
+        id = input("Escribe el Id:")
+        nom= input("Escibre el Nombre: ")
+        eda= input("Escriba la Edad: ")
+        
+        objectPeople.Insertar(id,nom,eda)
+        print(" :: Persona Agregada correctamente ::")
+        
+    elif opcion == "2":
+        print(" :: Estas son las personas guardadas ::")
+        objectPeople.consultar()
+        
+    elif opcion =="3":
+        print(" :: Introduce Id de la persona ::")
+        id= input("Id: ")
+        objectPeople.buscarUsuario(id)
+        
+    elif opcion =="4":
+        print(" :: Introduce Id de la persona a eliminar ::")
+        id= input("Id:")
+        objectPeople.eliminar(id)
+        
+    elif opcion =="5":
+        print(":: Introduce Id de la persona a editar ::")
+        id= input("Id:")
+        nm= input("Nombre: ")
+        ed= input("Edad: ")
+        objectPeople.editar(id,nm,ed)
+        
+    elif opcion =="6":
+        print("Bye!! ")
+        sys.exit()
+        
+    else:
+        print("Opcion no valida.")
+        
+        
+        
+    
+    
