@@ -1,9 +1,11 @@
 import sys
-from Usuario import*
+from Persona import*
+from Login import *
 
 
+objectPeople= Persona ()
+objectLogin= Login()
 
-objectPeople= Usuario ()
 
 while True:
     print("==Menu==")
@@ -12,7 +14,8 @@ while True:
     print("3. Buscar usuario: ")
     print("4. Eliminar usuario: ")
     print("5. Editar usuario: ")
-    print("6. Salir")
+    print("6. Login")
+    print("7. Salir")
     opcion = input("Elige una opcion: ")
     
     
@@ -47,7 +50,11 @@ while True:
         ed= input("Edad: ")
         objectPeople.editar(id,nm,ed)
         
-    elif opcion =="6":
+    elif  opcion =="6":
+        
+        status= objectLogin.crearLogin(objectPeople)
+        
+    elif opcion =="7":
         print("Bye!! ")
         sys.exit()
         

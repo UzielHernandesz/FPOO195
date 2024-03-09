@@ -1,5 +1,5 @@
     
-class Usuario:
+class Persona:
     def __init__(self):
         self.__lista = []
 
@@ -31,6 +31,16 @@ class Usuario:
                 usuario['Edad'] = edad  
                 print(":: Usuario Editado ::")
                 self.consultar()
+                
+    def validarUsuario(self,nombre,password):
+        for usuario in self.__lista:
+            if usuario['Nombre'] == nombre and usuario ['Pasw'] == password:
+                acceso= True
+            else:
+                acceso= False
+                
+        
+        return acceso
 
     
     
