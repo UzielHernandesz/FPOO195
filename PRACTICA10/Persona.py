@@ -33,13 +33,11 @@ class Persona:
                 self.consultar()
                 
     def validarUsuario(self,nombre,password):
+        acceso = False
         for usuario in self.__lista:
-            if usuario['Nombre'] == nombre and usuario ['Pasw'] == password:
-                acceso= True
-            else:
-                acceso= False
-                
-        
+            if usuario['Nombre']==nombre and usuario ['Passw'] == password :
+                acceso = True 
+                break 
         return acceso
 
     
