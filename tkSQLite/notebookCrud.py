@@ -1,5 +1,6 @@
 import tkinter as tk
 from tkinter import ttk
+from tkinter import *
 from tkinter import messagebox
 from Controlador import Controlador
 
@@ -17,6 +18,21 @@ def busUsuario():
         resultado_text.delete(1.0, tk.END) 
         resultado_text.insert(tk.END, usuarioBD)
         resultado_text.config(state="disabled")
+
+
+def buscartodosusu():
+    
+    usuarios = objControlador.consultarTodosUsuarios()
+    # Crear la tabla 
+    ttk.Label(Consultarusuarios, text="ID").grid(row=0, column=0, padx=5, pady=5)
+    ttk.Label(Consultarusuarios, text="Nombre").grid(row=0, column=1, padx=5, pady=5)
+    ttk.Label(Consultarusuarios, text="Correo").grid(row=0, column=2, padx=5, pady=5)
+    ttk.Label(Consultarusuarios, text="Contraseña").grid(row=0, column=3, padx=5, pady=5)
+    for i, usuario in enumerate(usuarios, start=1):
+        ttk.Label(Consultarusuarios, text=usuario[0]).grid(row=i, column=0, padx=5, pady=5)
+        ttk.Label(Consultarusuarios, text=usuario[1]).grid(row=i, column=1, padx=5, pady=5)
+        ttk.Label(Consultarusuarios, text=usuario[2]).grid(row=i, column=2, padx=5, pady=5)
+        ttk.Label(Consultarusuarios, text=usuario[3]).grid(row=i, column=3, padx=5, pady=5)
         
         
         #print(usuarioBD)
@@ -72,8 +88,21 @@ resultado_text = tk.Text(pestana2, height=5, width=52)
 resultado_text.pack()
 
 
+# Pestaña 3: Consultar todos los usuarios
+tk.Label(pestana3, text="Consulta Todos Usuarios", fg="blue", font=("Mono", 18)).pack()
 
-# Inicia el bucle principal de la interfaz gráfica. Mantiene abierta la ventana hasta que el usuario decida cerrarla.
+# Frame para mostrar la información de los usuarios consultados
+Consultarusuarios = ttk.Frame(pestana3)
+Consultarusuarios.pack(padx=10, pady=10)
+
+# Botón para consultar todos los usuarios
+tk.Button(pestana3, text="Consulta Todos Usuarios", command=buscartodosusu).pack()
+# # #pestaña 3
+# tk.Label(pestana3, text="Consulta Todos Usuarios", fg="blue", font=("Mono", 18)).pack()
+# tk.Button(pestana3, text="Consulta Todos Usuarios", command=buscartodosusu).pack()
+
+
+# # Inicia el bucle principal de la interfaz gráfica. Mantiene abierta la ventana hasta que el usuario decida cerrarla.
 ventana.mainloop()
 
 # tk.Label(pestana2, text="Buscar usuario", fg="red", font=("Mono", 18)).pack()

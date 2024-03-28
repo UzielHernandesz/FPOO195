@@ -1,7 +1,6 @@
 from tkinter import messagebox
 import sqlite3 
 import bcrypt
-
 class Controlador:
     def conexion(self):
         try:
@@ -37,10 +36,10 @@ class Controlador:
     def buscarUsuario(self, id_usuario):
         conexion = self.conexion()
         cursor = conexion.cursor()
-        # Preparar la sentencia SQL para seleccionar el usuario por ID
+    
         sqlconsulta = "SELECT id, nombre, correo, contra FROM usuarios WHERE id = ?"
         cursor.execute(sqlconsulta, (id_usuario,))
-        # Obtener el primer resultado, el fetchone retorna un registro 
+
         usuario = cursor.fetchone()
         conexion.close()
         if usuario:
@@ -50,6 +49,20 @@ class Controlador:
         else:
             messagebox.showwarning("Error", "Ese usuario no existe tibio.")
             return None
+    
+    #consultar todos           
+    def consultarTodosUsuarios(self):
+        conexion = self.conexion()
+        try:
+            cursor = conexion.cursor()
+            sqlSelect = "select * from usuarios"
+            cursor.execute(sqlSelect)
+            usuarios = cursor.fetchall()
+            conexion.close()
+            return usuarios
+        
+        except sqlite3.OperationalError:
+            print("Error de tu consulta tibio")
         
         
     # def buscarUsuario(self, id):
